@@ -1,0 +1,21 @@
+<div id="paypal-button-container-P-2HM78458V2374393VMSHJEPQ"></div>
+<script src="https://www.paypal.com/sdk/js?client-id=AcOVI4vaut0BKsRx15ofSWzZuvp6QP_9IVDqaOKjBlqbHD3vE5masZ4_Snn6sVIoLfYKTORlnnRg3wRL&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+<script>
+  paypal.Buttons({
+      style: {
+          shape: 'rect',
+          color: 'blue',
+          layout: 'vertical',
+          label: 'subscribe'
+      },
+      createSubscription: function(data, actions) {
+        return actions.subscription.create({
+          /* Creates the subscription */
+          plan_id: 'P-2HM78458V2374393VMSHJEPQ'
+        });
+      },
+      onApprove: function(data, actions) {
+        alert(data.subscriptionID); // You can add optional success message for the subscriber here
+      }
+  }).render('#paypal-button-container-P-2HM78458V2374393VMSHJEPQ'); // Renders the PayPal button
+</script>
